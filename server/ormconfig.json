@@ -1,0 +1,16 @@
+[
+  {
+    "name": "default",
+    "type": "postgres",
+    "host": "localhost",
+    "port": 5432,
+    "username": "postgres",
+    "password": "postgres",
+    "database": "siel_dev",
+    "entities": ["./src/models/*.ts"],
+    "migrations": ["./src/orm/migrations/*.ts"],
+    "cli": {
+      "migrationsDir": "./src/orm/migrations"
+    }
+  }
+]
