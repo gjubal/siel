@@ -11,6 +11,7 @@ import Dashboard from '../pages/Dashboard';
 import Menu from '../pages/Menu';
 import Home from '../pages/Home';
 import Queue from '../pages/Queue';
+import MenuForm from '../pages/MenuForm';
 
 const Routes: React.FC = () => {
   return (
@@ -18,11 +19,13 @@ const Routes: React.FC = () => {
       <ReactDOMRoute path="/" exact component={Home} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
-      <ReactDOMRoute path="/menu" component={Menu} />
+      <ReactDOMRoute path="/menu" exact component={Menu} />
 
+      <Route path="/menu/new" isPrivate component={MenuForm} />
+      <Route path="/menu/:id/edit" isPrivate component={MenuForm} />
       <Route path="/profile" isPrivate component={Profile} />
       <Route path="/dashboard" isPrivate exact component={Dashboard} />
-      <Route path="/dashboard/orders" isPrivate exact component={Queue} />
+      <Route path="/dashboard/orders" isPrivate component={Queue} />
     </Switch>
   );
 };

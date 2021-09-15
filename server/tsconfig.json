@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "module": "commonjs",
     "outDir": "./build",
     "rootDir": "./src",
@@ -8,9 +8,9 @@
     "strictPropertyInitialization": false,
     "baseUrl": "./src",
     "paths": {
-      "@controllers/*": ["controllers/*"],
-      "@models/*": ["models/*"],
-      "@views/*": ["views/*"]
+      "@modules/*": ["modules/*"],
+      "@config/*": ["config/*"],
+      "@common/*": ["common/*"]
     },
     "esModuleInterop": true,
     "experimentalDecorators": true,

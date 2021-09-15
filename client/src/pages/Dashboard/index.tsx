@@ -31,6 +31,10 @@ const Dashboard: React.FC = () => {
             <Button>Menu</Button>
           </Link>
 
+          <Link to="/menu/new">
+            <Button>Add drink to menu</Button>
+          </Link>
+
           <Link to="/dashboard/orders">
             <Button>Order queue</Button>
           </Link>

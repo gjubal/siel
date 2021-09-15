@@ -1,20 +1,24 @@
-import React, { useState } from 'react';
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import { FiArrowLeft } from 'react-icons/fi';
 import { useHistory } from 'react-router';
 import OrderCard from '../../components/OrderCard';
+import Placeholder from '../../components/Placeholder';
 import { useAuth } from '../../hooks/auth';
 import { useToast } from '../../hooks/toast';
+import api from '../../services/api';
 
 import { Container, Nav, Main } from './styles';
 
-type DrinkProps = {
+export type OrderProps = {
+  id?: string;
   name: string;
+  category: string;
+  fruit: string;
+  pictureUrl: string;
   quantity: number;
   price: number;
-};
-
-type OrderProps = {
-  drinks: DrinkProps[];
+  orders: OrderProps[];
+  setOrders: Dispatch<SetStateAction<OrderProps[]>>;
 };
 
 const Queue: React.FC = () => {
@@ -23,6 +27,26 @@ const Queue: React.FC = () => {
   const history = useHistory();
 
   const [orders, setOrders] = useState<OrderProps[]>([]);
+
+  useEffect(() => {
+    api.get('orders').then(response =>
+      response.data.forEach(async ({ name, quantity }: OrderProps) => {
+        const r = await api.get('menu', {
+          params: {
+            name,
+          },
+        });
+
+        const orderList = r.data.filter(
+          (detailedOrder: OrderProps) => detailedOrder.name === name,
+        );
+
+        orderList.forEach((order: OrderProps) => (order.quantity = quantity));
+
+        setOrders(orderList);
+      }),
+    );
+  }, []);
 
   return (
     <Container>
@@ -47,9 +71,25 @@ const Queue: React.FC = () => {
       </Nav>
 
       <Main>
-        <OrderCard />
-        <OrderCard />
-        <OrderCard />
+        <section>
+          {orders.length !== 0 ? (
+            orders.map(order => (
+              <OrderCard
+                key={order.id}
+                name={order.name}
+                category={order.category}
+                fruit={order.fruit}
+                quantity={order.quantity}
+                pictureUrl={order.pictureUrl}
+                price={order.price}
+                orders={orders}
+                setOrders={setOrders}
+              />
+            ))
+          ) : (
+            <Placeholder type="queue" />
+          )}
+        </section>
       </Main>
     </Container>
   );

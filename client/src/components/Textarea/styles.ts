@@ -8,7 +8,7 @@ export const Container = styled.div`
   }
 
   label {
-    font-size: 14px;
+    font-size: 0.9rem;
   }
 
   textarea {
@@ -17,22 +17,24 @@ export const Container = styled.div`
     min-height: 8rem;
     margin-top: 0.8rem;
     border-radius: 0.8rem;
-    background: #f5f8fa;
+    background: #f8f8fc;
     border: 1px solid #c1bccc;
     outline: 0;
     resize: vertical;
-    padding: 1.2rem 1.6rem;
-    font-size: 14px;
+    padding: 1.2rem;
+    font-size: 16px;
+    font-family: 'Barlow', serif;
+    color: #312e38;
   }
 
   &:focus-within::after {
-    width: calc(100% - 3.2rem);
+    width: (100% - 3.2rem);
     height: 2px;
     content: '';
-    background: #f5f8fa;
+    background: #916bea;
     position: absolute;
     left: 1.6rem;
     right: 1.6rem;
-    bottom: 7px;
+    bottom: 0px;
   }
 `;

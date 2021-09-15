@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 
 import { Link } from 'react-router-dom';
 import { Container, Nav, NavContent, Content, Section } from './styles';
@@ -11,19 +11,6 @@ import { useToast } from '../../hooks/toast';
 const Home: React.FC = () => {
   const { user, signOut } = useAuth();
   const { addToast } = useToast();
-
-  const checkIfLoggedIn = useCallback(
-    user => {
-      if (!user) {
-        addToast({
-          type: 'error',
-          title: 'Unauthorized',
-          description: 'Log in as a bartender to view the order queue.',
-        });
-      }
-    },
-    [addToast],
-  );
 
   return (
     <Container>
@@ -65,11 +52,6 @@ const Home: React.FC = () => {
           )}
           <Link to="/menu">
             <Button>Menu</Button>
-          </Link>
-          <Link to="/dashboard/orders">
-            <Button onClick={() => checkIfLoggedIn(user)}>
-              View order queue
-            </Button>
           </Link>
         </Section>
       </Content>

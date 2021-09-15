@@ -9,12 +9,13 @@ export const Container = styled.div`
 `;
 
 export const SidebarContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 33vh;
+  justify-content: center;
 
-  a {
-    margin-top: 40px;
+  section:first-of-type {
+    padding-top: 40px;
   }
 
   div {
@@ -29,10 +30,6 @@ export const SidebarContent = styled.div`
         margin-top: 20px;
       }
 
-      &:nth-of-type(1) {
-        margin-top: 340px;
-      }
-
       &:hover {
         color: ${shade(0.2, '#312e38')};
       }
@@ -43,17 +40,11 @@ export const SidebarContent = styled.div`
         height: 20px;
       }
     }
-
-    /* > a {
-      height: 30px;
-      margin-top: 40px;
-    } */
   }
 
   button:last-child {
     background: transparent;
     border: 0;
-    margin: 350px 0;
 
     svg {
       color: #fff;

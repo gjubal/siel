@@ -18,8 +18,7 @@ export const Nav = styled.header`
 `;
 
 export const Main = styled.main`
-  max-width: 1120px;
-  display: grid;
-  grid-template-columns: 1fr;
-  margin-left: 150px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 `;

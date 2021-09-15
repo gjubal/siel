@@ -74,6 +74,11 @@ export const Footer = styled.footer`
       font-size: 1.2rem;
       display: block;
     }
+
+    span {
+      color: #8257e5;
+      font-size: 1.2rem;
+    }
   }
 
   button {

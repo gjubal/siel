@@ -15,9 +15,11 @@ const Sidebar: React.FC<AuthProps> = ({ signOut }) => {
   return (
     <Container>
       <SidebarContent>
-        <Link to="/">
-          <img src={logoImg} alt="Siel" />
-        </Link>
+        <section>
+          <Link to="/">
+            <img src={logoImg} alt="Siel" />
+          </Link>
+        </section>
 
         <div>
           <Link to="/">
@@ -33,9 +35,11 @@ const Sidebar: React.FC<AuthProps> = ({ signOut }) => {
           </Link>
         </div>
 
-        <button type="button" onClick={signOut}>
-          <FiPower />
-        </button>
+        <section>
+          <button type="button" onClick={signOut}>
+            <FiPower />
+          </button>
+        </section>
       </SidebarContent>
     </Container>
   );

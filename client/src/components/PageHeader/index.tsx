@@ -21,7 +21,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({
         <Link to="/">
           <FiArrowLeft color="white" />
         </Link>
-        <img src={logoImage} alt="Volmate" />
+        <img src={logoImage} alt="Siel" />
       </TopBarContainer>
 
       <HeaderContent>

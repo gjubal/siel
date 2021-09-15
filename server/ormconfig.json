@@ -7,10 +7,10 @@
     "username": "postgres",
     "password": "postgres",
     "database": "siel_dev",
-    "entities": ["./src/models/*.ts"],
-    "migrations": ["./src/orm/migrations/*.ts"],
+    "entities": ["./src/modules/**/infra/typeorm/entities/*.ts"],
+    "migrations": ["./src/common/infra/typeorm/migrations/*.ts"],
     "cli": {
-      "migrationsDir": "./src/orm/migrations"
+      "migrationsDir": "./src/common/infra/typeorm/migrations"
     }
   }
 ]
